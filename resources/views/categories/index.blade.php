@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.index')
 
-@section('content')
+@section('connect')
     <h1>Categories</h1>
     <table class="table">
         <thead>
