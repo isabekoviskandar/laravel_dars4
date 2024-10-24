@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/category' , [CategoryController::class, 'index']);
+Route::get('/category' , [CategoryController::class, 'index']);
 
