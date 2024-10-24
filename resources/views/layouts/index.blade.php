@@ -105,6 +105,12 @@
                   <p>Products</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./likes" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Likes</p>
+                </a>
+              </li>
             </ul>
           </li>
  
