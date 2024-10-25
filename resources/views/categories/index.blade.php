@@ -2,11 +2,13 @@
 
 @section('connect')
     <h1>Categories</h1>
+    <a href="/category_create" class="btn btn-primary mb-4">Create</a>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>

@@ -9,8 +9,21 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [IndexController::class , 'index']);
+
 Route::get('/category' , [CategoryController::class, 'index']);
+Route::get('/category_create' , [CategoryController::class, 'create']);
+Route::post('/category' , [CategoryController::class, 'store']);
+
 Route::get('/posts' , [PostController::class, 'index']);
+Route::get('/posts_create' , [PostController::class, 'create']);
+Route::post('/posts' , [PostController::class, 'store']);
+
 Route::get('/comments' , [CommentController::class, 'index']);
+Route::get('/comments_create' , [CommentController::class, 'create']);
+Route::post('/comments' , [CommentController::class, 'store']);
+
 Route::get('/products' , [ProductController::class, 'index']);
+Route::get('/products_create' , [ProductController::class, 'create']);
+Route::post('/products' , [ProductController::class, 'index']);
+
 Route::get('/likes' , [LikeController::class, 'index']);

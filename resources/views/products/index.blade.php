@@ -2,6 +2,7 @@
 
 @section('connect')
     <h1>Products</h1>
+    <a href="/products_create" class="btn btn-primary mb-3">Add Product</a>
     <table class="table">
         <thead>
           <tr>
@@ -10,6 +11,7 @@
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +22,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
+
           </tr>
           @endforeach
         </tbody>

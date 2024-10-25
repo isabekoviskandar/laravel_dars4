@@ -2,11 +2,13 @@
 
 @section('connect')
     <h1>Comments</h1>
+    <a href="/comments_create" class="btn  btn-primary mb-3">Create comment</a>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Post ID</th>
-            <th scope="col">Comment</th>
+            <th scope="col">Name</th>
+            <th scope="col">options</th>
           </tr>
         </thead>
         <tbody>

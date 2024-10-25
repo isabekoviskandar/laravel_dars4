@@ -7,7 +7,8 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Post_id</th>
-            <th scope="col">User_id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
