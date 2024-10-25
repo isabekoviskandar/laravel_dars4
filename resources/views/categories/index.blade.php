@@ -16,6 +16,9 @@
           <tr>
             <th scope="row">{{ $category->id }}</th>
             <td>{{ $category->name }}</td>
+            <td>
+              <form action="/category"></form>
+            </td>
           </tr>
           @endforeach
         </tbody>

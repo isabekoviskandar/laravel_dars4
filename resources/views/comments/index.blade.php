@@ -16,6 +16,7 @@
           <tr>
             <td>{{ $comment->post_id }}</td>
             <td>{{ $comment->body }}</td>
+            <td></td>
           </tr>
           @endforeach
         </tbody>

@@ -17,8 +17,14 @@
     <div class="input-group input-group-sm mb-3">
         <form action="/comments" method="POST"> 
             @csrf
-        <span class="input-group-text" id="inputGroup-sizing-sm">Post id</span>
-        <input type="text" name="post_id" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <div class="input-group mb-3">
+                <select class="form-select" name="post_id" id="inputGroupSelect02">
+                    @foreach ($comments as $comment)
+                        <option value="{{ $comment ->post_id}}">{{$comment->name}}</option>
+                    @endforeach
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">Post id</label>
+              </div>
         <span class="input-group-text" id="inputGroup-sizing-sm">Body</span>
         <input type="text" name="body" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <input type="submit" class="btn btn-secondary">

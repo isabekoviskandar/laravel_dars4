@@ -17,8 +17,14 @@
     <div class="input-group input-group-sm mb-3">
         <form action="/posts" method="POST"> 
             @csrf
-        <span class="input-group-text" id="inputGroup-sizing-sm">Category id</span>
-        <input type="text" name="category_id" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <div class="input-group mb-3">
+                <select class="form-select" name="category_id" id="inputGroupSelect02">
+                    @foreach ($collection as $item)
+                        
+                    @endforeach
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">Category</label>
+              </div>
         <span class="input-group-text" id="inputGroup-sizing-sm">title</span>
         <input type="text" name="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">Body</span>
