@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             LikeSeeder::class,
             CompanySeeder::class,
             UserSeeder::class,
+            Product2Seeder::class,
         ]);
     }
 }

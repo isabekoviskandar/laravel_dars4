@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUsersRequest;
-use App\Http\Requests\UpdateUsersRequest;
-use App\Models\User;
-use App\Models\Users;
+use App\Http\Requests\StoreProduct2Request;
+use App\Http\Requests\UpdateProduct2Request;
+use App\Models\Product2;
 
-class UsersController extends Controller
+class Product2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('company_control.user.index' , ['users'=>$users]);
+        $products = Product2::all();
+        return view('company_control.product.index' , ['product2s' => $products]);
     }
 
     /**
@@ -29,7 +28,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUsersRequest $request)
+    public function store(StoreProduct2Request $request)
     {
         //
     }
@@ -37,7 +36,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Users $users)
+    public function show(Product2 $product2)
     {
         //
     }
@@ -45,7 +44,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Users $users)
+    public function edit(Product2 $product2)
     {
         //
     }
@@ -53,7 +52,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsersRequest $request, Users $users)
+    public function update(UpdateProduct2Request $request, Product2 $product2)
     {
         //
     }
@@ -61,7 +60,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Users $users)
+    public function destroy(Product2 $product2)
     {
         //
     }
