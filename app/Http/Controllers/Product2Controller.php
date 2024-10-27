@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProduct2Request;
 use App\Http\Requests\UpdateProduct2Request;
+use App\Models\Product;
 use App\Models\Product2;
 
 class Product2Controller extends Controller
@@ -13,8 +14,8 @@ class Product2Controller extends Controller
      */
     public function index()
     {
-        $products = Product2::all();
-        return view('company_control.product.index' , ['product2s' => $products]);
+        $products = Product::all();
+        return view('company_control.product.index' , ['products' => $products]);
     }
 
     /**
