@@ -23,6 +23,8 @@ Route::post('/users' , [UsersController::class, 'store']);
 
 
 Route::get('product2' , [Product2Controller::class, 'index']);
+Route::get('product2_create' , [Product2Controller::class, 'create']);
+Route::post('product2' , [Product2Controller::class, 'store']);
 
 Route::get('/category' , [CategoryController::class, 'index']);
 Route::get('/category_create' , [CategoryController::class, 'create']);

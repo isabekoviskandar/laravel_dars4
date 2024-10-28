@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProduct2Request;
 use App\Http\Requests\UpdateProduct2Request;
 use App\Models\Product;
 use App\Models\Product2;
+use Illuminate\Http\Request;
 
 class Product2Controller extends Controller
 {
@@ -23,15 +24,27 @@ class Product2Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('company_control.product.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProduct2Request $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id'=>'required|max:10',
+            'name'=>'required|max:255',
+            'price'=>'required|max:100',
+            'quantity'=>'required|max:10',  
+        ]);
+        $product = new Product2();
+        $product->user_id = $request->user_id;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->save();
+        return redirect('/product2');
     }
 
     /**

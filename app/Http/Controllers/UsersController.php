@@ -40,7 +40,7 @@ class UsersController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->save();
-        return redirect()->route('/users')->with('success','User created successfully');
+        return redirect('/users');;
     }
 
     /**
