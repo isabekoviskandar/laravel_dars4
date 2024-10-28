@@ -14,11 +14,11 @@ class Product2Controller extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('company_control.product.index' , ['products' => $products]);
+        $product2s = Product2::all();
+        return view('company_control.product.index' , ['product2s' => $product2s]);
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      */
     public function create()

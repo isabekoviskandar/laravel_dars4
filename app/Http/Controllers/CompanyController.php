@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -22,15 +22,27 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('company_control.company.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCompanyRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id'=>'required|max:10',
+            'name'=>'required|max:255',
+            'phone'=>'required|max:100',
+            'is_active'=>'required|max:5',
+        ]);
+        $company = new Company();
+        $company->user_id = $request->input('user_id');
+        $company->name = $request->input('name');
+        $company->phone = $request->input('phone');
+        $company->is_active = $request->input('is_active');
+        $company->save();
+        return redirect('/');
     }
 
     /**

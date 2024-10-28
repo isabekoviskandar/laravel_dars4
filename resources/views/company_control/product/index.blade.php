@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($products as $product)
+          @foreach ($product2s as $product)
           <tr>
             <th scope="row">{{ $product->id }}</th>
             <td>{{ $product->user_id }}</td>

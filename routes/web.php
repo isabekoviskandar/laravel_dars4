@@ -9,14 +9,17 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\Product2Controller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsersController;
-use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [CompanyController::class , 'index']);
+Route::get('/company_create' , [CompanyController::class , 'create']);
+Route::post('/' , [CompanyController::class , 'store']);
 
 
 
 Route::get('/users' , [UsersController::class, 'index']);
+Route::get('/user_create' , [UsersController::class, 'create']);
+Route::post('/users' , [UsersController::class, 'store']);
 
 
 Route::get('product2' , [Product2Controller::class, 'index']);

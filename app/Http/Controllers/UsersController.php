@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
 use App\Models\User;
-use App\Models\Users;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -23,21 +22,31 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('company_control.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUsersRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|max:255',
+            'email'=>'required|max:255',
+            'password'=>'required|max:255',
+        ]);
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+        return redirect()->route('/users')->with('success','User created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Users $users)
+    public function show(User $users)
     {
         //
     }
@@ -45,7 +54,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Users $users)
+    public function edit(User $users)
     {
         //
     }
@@ -53,7 +62,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsersRequest $request, Users $users)
+    public function update(UpdateUsersRequest $request, User $users)
     {
         //
     }
@@ -61,7 +70,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Users $users)
+    public function destroy(User $users)
     {
         //
     }

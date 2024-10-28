@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1 class="mt-5 mb-3">Companies</h1>    
-    <a href="#" class="btn btn-primary mb-4">Create</a>
+    <a href="/company_create" class="btn btn-primary mb-4">Create</a>
     <table class="table">
         <thead>
           <tr>

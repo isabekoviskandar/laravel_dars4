@@ -24,7 +24,7 @@ class ProductController extends Controller
             'category_id'=>'required|max:10',
             'name'=>'required|max:255',
             'price'=>'required|max:100',
-            'quantity'=>'required|max:10',
+            'quantity'=>'required|max:10',  
         ]);
         $product = new Product();
         $product->category_id = $request->category_id;
