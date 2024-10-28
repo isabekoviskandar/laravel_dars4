@@ -46,32 +46,40 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $users)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $users)
+    public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsersRequest $request, User $users)
-    {
-        //
-    }
+
+     public function update(Request $request, $id)
+     {
+         $request->validate(['name' => 'required', 'email' => 'required|email']);
+         $user = User::findOrFail($id);
+         $user->update($request->except('password')); // Don't update password if not provided
+         return redirect()->route('users.index');
+     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $users)
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 }

@@ -8,7 +8,7 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">User_id</th>
+            <th scope="col">User ID</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
@@ -23,11 +23,15 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
-            <td> <a href="#" class="btn btn-danger">Delete</a></td>
-            <td> <a href="#" class="btn btn-success">Update</a></td>
-            <td> <a href="#" class="btn btn-primary">Show</a></td>
             <td>
-              <form action="#"></form>
+                <a href="/product2/{{ $product->id }}" class="btn btn-primary">Show</a>
+                <a href="/product2/{{ $product->id }}/edit" class="btn btn-success">Update</a>
+                
+                <form action="/product2/{{ $product->id }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
+                </form>
             </td>
           </tr>
           @endforeach

@@ -50,7 +50,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('company_control.company.show', compact('company'));
     }
 
     /**
@@ -58,22 +58,33 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('company_control.company.edit', compact('company'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCompanyRequest $request, Company $company)
+    public function update(Request $request, Company $company)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'is_active' => 'required|boolean'
+        ]);
+    
+        $company->update($request->all());
+    
+        return redirect()->route('company.index')->with('success', 'Company updated successfully.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+        
+        return redirect()->route('company.index')->with('success', 'Company deleted successfully.');
     }
 }

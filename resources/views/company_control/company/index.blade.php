@@ -23,11 +23,17 @@
             <td>{{ $company->name }}</td>
             <td>{{ $company->phone }}</td>
             <td>{{ $company->is_active }}</td>
-            <td> <a href="#" class="btn btn-danger">Delete</a></td>
-            <td> <a href="#" class="btn btn-success">Update</a></td>
-            <td> <a href="#" class="btn btn-primary">Show</a></td>
             <td>
-              <form action="#"></form>
+              <!-- Delete form -->
+              <form action="{{ route('company.destroy', $company->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this company?');" style="display: inline-block;">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+
+              <!-- Update and Show buttons -->
+              <a href="{{ route('company.edit', $company->id) }}" class="btn btn-success">Update</a>
+              <a href="{{ route('company.show', $company->id) }}" class="btn btn-primary">Show</a>
             </td>
           </tr>
           @endforeach

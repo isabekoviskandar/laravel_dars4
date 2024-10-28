@@ -50,32 +50,46 @@ class Product2Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product2 $product2)
+    public function show($id)
     {
-        //
+        $product = Product2::findOrFail($id);
+        return view('company_control.product.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product2 $product2)
+    public function edit($id)
     {
-        //
+        $product = Product2::findOrFail($id);
+        return view('company_control.product.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProduct2Request $request, Product2 $product2)
+    public function update(Request $request , $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'quantity' => 'required|integer',
+        ]);
+    
+        $product = Product2::findOrFail($id);
+        $product->update($request->all());
+    
+        return redirect()->route('company_control.product.index')->with('success', 'Product updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product2 $product2)
+    public function destroy($id)
     {
-        //
+        $product = Product2::findOrFail($id);
+        $product->delete();
+    
+        return redirect()->route('product2.index')->with('success', 'Product deleted successfully.');
     }
 }

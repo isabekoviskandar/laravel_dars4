@@ -11,20 +11,37 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/' , [CompanyController::class , 'index']);
-Route::get('/company_create' , [CompanyController::class , 'create']);
-Route::post('/' , [CompanyController::class , 'store']);
+Route::get('/', [CompanyController::class, 'index'])->name('company.index');       
+Route::get('/company_create', [CompanyController::class, 'create'])->name('company.create'); 
+Route::post('/company', [CompanyController::class, 'store'])->name('company.store');     
+Route::get('/company/{company}', [CompanyController::class, 'show'])->name('company.show');
+Route::get('/company/{company}/edit', [CompanyController::class, 'edit'])->name('company.edit'); 
+Route::put('/company/{company}', [CompanyController::class, 'update'])->name('company.update'); 
+Route::delete('/company/{company}', [CompanyController::class, 'destroy'])->name('company.destroy'); 
 
 
 
-Route::get('/users' , [UsersController::class, 'index']);
-Route::get('/user_create' , [UsersController::class, 'create']);
-Route::post('/users' , [UsersController::class, 'store']);
 
 
-Route::get('product2' , [Product2Controller::class, 'index']);
-Route::get('product2_create' , [Product2Controller::class, 'create']);
-Route::post('product2' , [Product2Controller::class, 'store']);
+
+
+Route::get('/product2', [ProductController::class, 'index'])->name('product2.index');
+Route::get('/product2_create', [ProductController::class, 'create'])->name('product2.create');
+Route::post('/product2', [ProductController::class, 'store'])->name('product2.store');
+Route::get('/product2/{id}', [ProductController::class, 'show'])->name('product2.show'); // This should be a GET request
+Route::get('/product2/{id}/edit', [ProductController::class, 'edit'])->name('product2.edit'); // This should be a GET request
+Route::put('/product2/{id}', [ProductController::class, 'update'])->name('product2.update'); // This is a PUT request
+Route::delete('/product2/{id}', [ProductController::class, 'destroy'])->name('product2.destroy'); // This is a DELETE request
+
+
+Route::get('users', [UsersController::class, 'index'])->name('users.index');
+Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
+Route::post('users', [UsersController::class, 'store'])->name('users.store');
+Route::get('users/{id}', [UsersController::class, 'show'])->name('users.show');
+Route::get('users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
+Route::put('users/{id}', [UsersController::class, 'update'])->name('users.update');
+Route::delete('users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+
 
 Route::get('/category' , [CategoryController::class, 'index']);
 Route::get('/category_create' , [CategoryController::class, 'create']);
