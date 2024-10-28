@@ -11,11 +11,19 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('company_control.user.index' , ['users'=>$users]);
+        $search = $request->input('search');
+    
+        // Query the users with optional search filtering
+        $users = User::when($search, function($query) use ($search) {
+            return $query->where('name', 'LIKE', "%{$search}%")
+                         ->orWhere('email', 'LIKE', "%{$search}%");
+        })->paginate(10); // Adjust pagination as necessary
+    
+        return view('company_control.user.index', compact('users', 'search'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
